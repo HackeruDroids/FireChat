@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="crQ-1y-1fy">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MarkerFeltThin.ttf">
+            <string>MarkerFelt-Thin</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="a7E-9N-Hz5">
+            <objects>
+                <tableViewController id="Uon-qf-Rrr" customClass="ChatRoomsTableViewController" customModule="FireChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CLO-WT-teT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="addTopicCell" id="aXN-kr-BMh" customClass="AddTopicCell" customModule="FireChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aXN-kr-BMh" id="j1Q-cX-ham">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JjQ-IW-bi6">
+                                            <rect key="frame" x="8" y="8" width="359" height="27.5"/>
+                                            <subviews>
+                                                <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1" horizontalCompressionResistancePriority="1" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Topic..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yel-F4-Z1j">
+                                                    <rect key="frame" x="0.0" y="0.0" width="329" height="27.5"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DHm-Qx-zKX">
+                                                    <rect key="frame" x="337" y="0.0" width="22" height="27.5"/>
+                                                    <connections>
+                                                        <action selector="addTopic:" destination="aXN-kr-BMh" eventType="touchUpInside" id="VNt-cb-B2x"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="JjQ-IW-bi6" firstAttribute="leading" secondItem="j1Q-cX-ham" secondAttribute="leading" constant="8" id="ZAJ-G4-eeW"/>
+                                        <constraint firstItem="JjQ-IW-bi6" firstAttribute="top" secondItem="j1Q-cX-ham" secondAttribute="top" constant="8" id="ith-ep-awm"/>
+                                        <constraint firstAttribute="trailing" secondItem="JjQ-IW-bi6" secondAttribute="trailing" constant="8" id="uDc-ej-zHD"/>
+                                        <constraint firstAttribute="bottom" secondItem="JjQ-IW-bi6" secondAttribute="bottom" constant="8" id="z9E-EG-PZJ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="topicTextField" destination="yel-F4-Z1j" id="ZLR-ZL-aTI"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="topicCell" id="XVG-l2-oqT" customClass="TopicCell" customModule="FireChat" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XVG-l2-oqT" id="Yk3-fJ-rU7">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD2-f7-oGT">
+                                            <rect key="frame" x="16" y="16" width="359" height="11.5"/>
+                                            <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="29"/>
+                                            <color key="textColor" red="0.015393224719999999" green="0.76424482410000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="fD2-f7-oGT" firstAttribute="trailing" secondItem="Yk3-fJ-rU7" secondAttribute="trailingMargin" constant="8" id="3xR-O9-hjQ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="fD2-f7-oGT" secondAttribute="bottom" constant="8" id="8Uy-5X-e6C"/>
+                                        <constraint firstItem="fD2-f7-oGT" firstAttribute="leading" secondItem="Yk3-fJ-rU7" secondAttribute="leadingMargin" constant="8" id="oQB-hC-mm1"/>
+                                        <constraint firstItem="fD2-f7-oGT" firstAttribute="top" secondItem="Yk3-fJ-rU7" secondAttribute="topMargin" constant="8" id="zbb-fb-vsl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="topicLabel" destination="fD2-f7-oGT" id="lre-hA-T1n"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Uon-qf-Rrr" id="zVw-jE-ArJ"/>
+                            <outlet property="delegate" destination="Uon-qf-Rrr" id="XGI-b7-9pr"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="Tc0-QS-uAf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ueG-s7-55E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="292" y="139.880059970015"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k1T-p6-vQt">
+            <objects>
+                <navigationController id="crQ-1y-1fy" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ih6-rs-Kif">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Uon-qf-Rrr" kind="relationship" relationship="rootViewController" id="eTA-FW-eZx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kaJ-9g-ri5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-460" y="140"/>
+        </scene>
+    </scenes>
+</document>
