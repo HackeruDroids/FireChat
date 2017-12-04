@@ -8,11 +8,21 @@
 
 import UIKit
 import JSQMessagesViewController
+import FirebaseDatabase
+import FirebaseAuth
 
 class ChatController: JSQMessagesViewController {
 
     var data: [JSQMessage] = []
     var topic: Topic!
+    
+    //computed firebase properties:
+    var ref: DatabaseReference {
+        return Database.database().reference(withPath: "topicMessages").child(topic.id)
+    }
+    var user:User?{
+        return Auth.auth().currentUser
+    }
     
     //setup the bubble colors:
     lazy var incoming: JSQMessagesBubbleImage = {
@@ -85,5 +95,29 @@ class ChatController: JSQMessagesViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+
+extension JSQMessage{
+    var json:Json{
+        return [
+            "senderId" : senderId,
+            "senderDisplayName": senderDisplayName,
+            "text" : text,
+            "date" : date.timeIntervalSince1970 * 1000
+        ]
+    }
+    
+    convenience init?(snapshot: DataSnapshot) {
+        guard let json = snapshot.value as? Json,
+              let senderId = json["senderId"] as? String,
+              let senderDisplayName  = json["senderDisplayName"] as? String,
+              let date = json["date"] as? TimeInterval,
+              let text = json["text"] as? String
+        else{return nil}
+        
+        
+        self.init(senderId: senderId, senderDisplayName: senderDisplayName, date: Date(timeIntervalSince1970: date), text: text)
+    }
+}
+
+
