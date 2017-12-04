@@ -38,7 +38,8 @@ class ChatController: JSQMessagesViewController {
         self.senderDisplayName = "Tomer"
         
         //setup the bubbles: incoming and outgoing bubbles
-        
+        collectionView.collectionViewLayout.incomingAvatarViewSize = CGSize.zero
+        collectionView.collectionViewLayout.outgoingAvatarViewSize = CGSize.zero
     }
     //set the bubble colors for incoming / outgoing
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
@@ -60,9 +61,20 @@ class ChatController: JSQMessagesViewController {
         return data[indexPath.item]
     }
 
-    
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         return nil
+    }
+    
+    override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
+        
+        let message = JSQMessage(senderId: senderId, senderDisplayName: senderDisplayName, date: date, text: text)
+        
+        //add the message to the array
+        data.append(message!)
+        //notify the collection view
+        finishSendingMessage()
+        //play sound
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
     }
     /*
     // MARK: - Navigation
