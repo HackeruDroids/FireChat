@@ -91,7 +91,21 @@ class ChatRoomsTableViewController: UITableViewController {
         return cell
     }
     
+    //perform the segue
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let topic:Topic = data[indexPath.row]
+        
+        performSegue(withIdentifier: "toChat", sender: topic)
+    }
     
+    //pass data with the segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let dest = segue.destination as? ChatController,
+              let topic = sender as? Topic
+            else {return}
+        
+        dest.topic = topic
+    }
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
