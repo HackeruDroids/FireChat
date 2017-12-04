@@ -8,11 +8,17 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
 
 class AddTopicCell: UITableViewCell {
 
     @IBAction func addTopic(_ sender: UIButton) {
-        guard let text = topicTextField.text else {
+        //we also need:
+        //ownerName, topicId -> Todo get it from childByAutoId
+        //Date
+        guard let text = topicTextField.text,
+        let userid = Auth.auth().currentUser?.uid
+        else {
             //no data to write to database.
             return
         }
@@ -24,8 +30,11 @@ class AddTopicCell: UITableViewCell {
         
         
         let topicsRef = Database.database().reference(withPath: "topics").childByAutoId()
+        let topicID = topicsRef.key
         
-        topicsRef.setValue(text) { (error, ref) in
+        let topic = Topic(topic: text, id: topicID, owner: userid)
+        
+        topicsRef.setValue(topic.json) { (error, ref) in
             if error == nil{
                 self.topicTextField.text = nil
             }
