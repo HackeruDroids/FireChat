@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 struct Topic {
     var topic:String
@@ -25,8 +26,9 @@ struct Topic {
         ]
     }
     //De - serialization:
-    init?(json: Json){
-        guard let topic = json["topic"] as? String,
+    init?(snapshot: DataSnapshot){
+        guard let json = snapshot.value as? Json,
+            let topic = json["topic"] as? String,
             let id = json["id"] as? String,
             let owner = json["owner"] as? String,
             let millis = json["dateModified"] as? TimeInterval

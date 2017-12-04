@@ -35,8 +35,7 @@ class ChatRoomsTableViewController: UITableViewController {
     func startObserving(){
         let ref = Database.database().reference(withPath: "topics")
         ref.observe(.childAdded) { (snapshot) in
-            guard let topicJson = snapshot.value as? Json else {return}
-            let topic = Topic(json: topicJson)!
+            guard let topic = Topic(snapshot: snapshot) else{return}
             
             let path = IndexPath(row: self.data.count, section: 1)
             self.data.append(topic)
@@ -45,7 +44,20 @@ class ChatRoomsTableViewController: UITableViewController {
         
         
         ref.observe(.childChanged) { (snapshot) in
-            //
+            //deserialization...
+            guard let topic = Topic(snapshot: snapshot) else{return}
+            
+            for (i, t) in self.data.enumerated(){
+                if t.id == topic.id{
+                    //found
+                    //1) change the value in the data array
+                    self.data[i] = topic
+                    //2) update the tableView
+                    let idxPath = IndexPath(row: i, section: 1)
+                    self.tableView.reloadRows(at: [idxPath], with: .automatic)
+                    return
+                }
+            }
         }
     }
     
