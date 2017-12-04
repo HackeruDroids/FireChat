@@ -100,10 +100,10 @@
             </objects>
             <point key="canvasLocation" x="292" y="139.880059970015"/>
         </scene>
-        <!--View Controller-->
+        <!--Chat Controller-->
         <scene sceneID="cev-3x-ALI">
             <objects>
-                <viewController id="Jy1-9y-Drk" sceneMemberID="viewController">
+                <viewController id="Jy1-9y-Drk" customClass="ChatController" customModule="FireChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XDC-7M-R5m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
