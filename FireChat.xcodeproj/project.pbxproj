@@ -19,6 +19,8 @@
 		6D2995681FD0794200DDFEC5 /* AddTopicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D2995671FD0794200DDFEC5 /* AddTopicCell.swift */; };
 		6D29956B1FD08E5000DDFEC5 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D29956A1FD08E5000DDFEC5 /* Topic.swift */; };
 		6D5CA7641FD5BF4B008DE799 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5CA7631FD5BF4B008DE799 /* ChatController.swift */; };
+		6D5CA7661FD994E6008DE799 /* STableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5CA7651FD994E6008DE799 /* STableViewController.swift */; };
+		6D5CA7681FD99501008DE799 /* STableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D5CA7671FD99501008DE799 /* STableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		6D2995671FD0794200DDFEC5 /* AddTopicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTopicCell.swift; sourceTree = "<group>"; };
 		6D29956A1FD08E5000DDFEC5 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
 		6D5CA7631FD5BF4B008DE799 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
+		6D5CA7651FD994E6008DE799 /* STableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STableViewController.swift; sourceTree = "<group>"; };
+		6D5CA7671FD99501008DE799 /* STableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STableViewCell.swift; sourceTree = "<group>"; };
 		AE5710778301C556E9C097A5 /* Pods_FireChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,6 +98,8 @@
 				6D2995651FD06FCD00DDFEC5 /* TopicCell.swift */,
 				6D2995671FD0794200DDFEC5 /* AddTopicCell.swift */,
 				6D5CA7631FD5BF4B008DE799 /* ChatController.swift */,
+				6D5CA7671FD99501008DE799 /* STableViewCell.swift */,
+				6D5CA7651FD994E6008DE799 /* STableViewController.swift */,
 			);
 			path = FireChat;
 			sourceTree = "<group>";
@@ -257,10 +263,12 @@
 				6D2995521FD05F0900DDFEC5 /* ViewController.swift in Sources */,
 				6D29956B1FD08E5000DDFEC5 /* Topic.swift in Sources */,
 				6D5CA7641FD5BF4B008DE799 /* ChatController.swift in Sources */,
+				6D5CA7681FD99501008DE799 /* STableViewCell.swift in Sources */,
 				6D2995661FD06FCD00DDFEC5 /* TopicCell.swift in Sources */,
 				6D2995681FD0794200DDFEC5 /* AddTopicCell.swift in Sources */,
 				6D2995501FD05F0900DDFEC5 /* AppDelegate.swift in Sources */,
 				6D2995641FD06EAB00DDFEC5 /* ChatRoomsTableViewController.swift in Sources */,
+				6D5CA7661FD994E6008DE799 /* STableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
